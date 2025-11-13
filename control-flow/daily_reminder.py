@@ -1,26 +1,21 @@
-# Personal Daily Reminder Program (Python <3.10 compatible)
-
-# Prompt for user inputs
 task = input("Enter your task: ")
 priority = input("Priority (high/medium/low): ").lower()
 time_bound = input("Is it time-bound? (yes/no): ").lower()
 
-# Handle priority using if-elif-else
+# Handle priority with if-elif-else
 if priority == "high":
-    message = f"'{task}' is a high priority task"
+    reminder = f"'{task}' is a {priority} priority task"
 elif priority == "medium":
-    message = f"'{task}' is a medium priority task"
+    reminder = f"'{task}' is a {priority} priority task"
 elif priority == "low":
-    message = f"'{task}' is a low priority task"
+    reminder = f"'{task}' is a {priority} priority task"
 else:
-    message = f"'{task}' has an unknown priority level"
+    reminder = None
+    print("Enter a valid task!")
 
-# Modify message based on time sensitivity
-if time_bound == "yes":
-    message += " that requires immediate attention today!"
-else:
-    message = "Note: " + message + ". Consider completing it when you have free time."
-
-# Print final reminder
-print("\nReminder:", message)
-
+# Print the reminder if valid
+if reminder:
+    if time_bound == "yes":
+        print(f"Reminder: {reminder} that requires immediate attention today!")
+    else:
+        print(f"Note: {reminder}. Consider completing it when you have free time.")
