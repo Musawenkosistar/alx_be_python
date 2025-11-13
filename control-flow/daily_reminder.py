@@ -1,20 +1,19 @@
-# Personal Daily Reminder Program
+# Personal Daily Reminder Program (Python <3.10 compatible)
 
 # Prompt for user inputs
 task = input("Enter your task: ")
 priority = input("Priority (high/medium/low): ").lower()
 time_bound = input("Is it time-bound? (yes/no): ").lower()
 
-# Use match case to handle priority
-match priority:
-    case "high":
-        message = f"'{task}' is a high priority task"
-    case "medium":
-        message = f"'{task}' is a medium priority task"
-    case "low":
-        message = f"'{task}' is a low priority task"
-    case _:
-        message = f"'{task}' has an unknown priority level"
+# Handle priority using if-elif-else
+if priority == "high":
+    message = f"'{task}' is a high priority task"
+elif priority == "medium":
+    message = f"'{task}' is a medium priority task"
+elif priority == "low":
+    message = f"'{task}' is a low priority task"
+else:
+    message = f"'{task}' has an unknown priority level"
 
 # Modify message based on time sensitivity
 if time_bound == "yes":
